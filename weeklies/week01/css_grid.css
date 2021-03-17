@@ -1,15 +1,31 @@
+
 .container {
-    border: 3px solid rgb(41, 103, 184);
-    width: 150px;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     /* Add stuff below this comment */
 
 }
 
-.square {
-    border: 1px solid rgb(62, 104, 38);
-    background-color: rgb(169, 230, 56);
-    width: 50px;
-    height: 50px;
+.ga {
+    background-color: #2dc7ff;
+    box-shadow: inset 1px 1px 3px 0 #000;
+    /* Add stuff below this comment */
+
+}
+
+.gb {
+    background-color: #1affd5;
+    box-shadow: inset 1px 1px 3px 0 #000;
+    /* Add stuff below this comment */
+
+}
+
+.gc {
+    background-color: #3d3b30;
+    box-shadow: inset 1px 1px 3px 0 #000;
     /* Add stuff below this comment */
 
 }
