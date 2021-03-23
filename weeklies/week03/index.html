@@ -33,11 +33,20 @@
         </div>
 
         <script>
-            function addWord(word) {
+            var iAmGlobal = "global for life";
+            // hints:
+            // - (global) incrmement id
+            // if er ikke nødvendig.
+            
+            // Get element dynamically:
+            console.log("test", document.getElementById("word" + 2));
 
+            function addWord(word) {
+                
             }
 
             function addWord1(paragraphElement) {
+                console.log("Global guy", iAmGlobal);
                 // Get word1 element (object)
                 let word1Element = document.getElementById('word1');
                 // Get word1 element innerHTML (string)
