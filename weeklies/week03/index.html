@@ -23,14 +23,21 @@
 
     <body>
         <div id="story-container">
-            <p id="story">Dette er en test [<span id="word1"> ..... </span>] testing test teeeest <span id="word2">.....</span></p>
+            <p id="story">Dette er en test <span id="word1" class="insertable-element">_____</span> testing test teeeest <span id="word2" class="insertable-element">_____</span> og så et tredje ord <span id="word3" class="insertable-element">_____</span>.</p>
         </div>
         <div class="pickable-word-container">
-            <p id="pick1" class="pickable-word" onclick="addWord(this)">A word</p>
+            <p id="pick1" class="pickable-word" onclick="addWord1(this)">1st word</p>
+            <p id="pick2" class="pickable-word" onclick="addWord1(this)">2nd word</p>
+            <p id="pick3" class="pickable-word" onclick="addWord1(this)">3rd word</p>
+            <p id="pick4" class="pickable-word" onclick="addWord1(this)">4th word</p>
         </div>
 
         <script>
-            function addWord(paragraphElement) {
+            function addWord(word) {
+
+            }
+
+            function addWord1(paragraphElement) {
                 // Get word1 element (object)
                 let word1Element = document.getElementById('word1');
                 // Get word1 element innerHTML (string)
