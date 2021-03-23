@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!-- 
+            Teamoppgave: WordChooser Story!
+            Lag en liten historie med noen manglende ord.
+            Lag en liste over ord som kan klikkes på - og la disse ordene fylle tomrommene i historien når de blir valgt.
+            Kjør på med å bruke MVC - jo oftere dere får brukt det - jo tryggere blir dere på det;)
+
+            Gå sammen i teamene deres - planlegg og jobb sammen for å finne en løsning - pass på at alle får bidratt! :slight_smile:
+            Blir dere tidlig ferdig, så bruk resten av TP øktene til å slippe kreativiteten løs og "jazze opp" oppgaven  -->
+
+        <meta charset="utf-8">
+        <meta name="author" content="Aleksander Berge Kjellsen, Casper Kielland, Stine Marte Duklæt Aspenes">
+        <meta name="keywords" content="GET Academy, BluABK, StineMAS, CasperKi">
+        <meta name="description" content="Team 4 weekly project: Week 3 - WordChooser Story">
+
+        <title>Team 4 weekly project: Week 3 - WordChooser Story</title>
+
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+
+    <body>
+        <div id="story-container">
+            <p id="story">Dette er en test [<span id="word1"> ..... </span>] testing test teeeest <span id="word2">.....</span></p>
+        </div>
+        <div class="pickable-word-container">
+            <p id="pick1" class="pickable-word" onclick="addWord(this)">A word</p>
+        </div>
+
+        <script>
+            function addWord(paragraphElement) {
+                // Get word1 element (object)
+                let word1Element = document.getElementById('word1');
+                // Get word1 element innerHTML (string)
+                let word1ElementInnerHTML = word1Element.innerHTML;
+                
+                // Get pickable word 1 element (object)
+                let pickableWord1 = document.getElementById(paragraphElement.id);
+                // Get pickable word 1 element innerHTML (string)
+                let pickableWord1InnerHTML = pickableWord1.innerHTML;
+
+                // Set word1 element's innerHTML to a specified value.
+                document.getElementById('word1').innerHTML = pickableWord1InnerHTML;
+            }
+        </script>
+    </body>
+</html>
