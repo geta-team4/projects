@@ -23,13 +23,13 @@
 
     <body>
         <div id="story-container">
-            <p id="story">Dette er en test <span id="word1" class="insertable-element">_____</span> testing test teeeest <span id="word2" class="insertable-element">_____</span> og så et tredje ord <span id="word3" class="insertable-element">_____</span>.</p>
+            <p id="story">Dette er en test <span id="slot1" class="insertable-element">_____</span> testing test teeeest <span id="slot2" class="insertable-element">_____</span> og så et tredje ord <span id="slot3" class="insertable-element">_____</span>.</p>
         </div>
         <div class="pickable-word-container">
-            <p id="pick1" class="pickable-word" onclick="addWord(this.id)">potato</p>
-            <p id="pick2" class="pickable-word" onclick="addWord(this.id)">banana</p>
-            <p id="pick3" class="pickable-word" onclick="addWord(this.id)">apple</p>
-            <p id="pick4" class="pickable-word" onclick="addWord(this.id)">turnip</p>
+            <p id="word1" class="pickable-word" onclick="addWord1(this.id)">potato</p>
+            <p id="word2" class="pickable-word" onclick="addWord(this.id)">banana</p>
+            <p id="word3" class="pickable-word" onclick="addWord(this.id)">apple</p>
+            <p id="word4" class="pickable-word" onclick="addWord(this.id)">turnip</p>
         </div>
 
         <script>
@@ -53,9 +53,10 @@
             // document.getElementById("word" + wordIdNumber);
             // "en streng" + " test" = "en streng test"
             // "en streng" + 15 = "en streng15"
-            console.log("test", document.getElementById("word" + 2)); // "word2"
+            console.log(document.getElementById("slot_" + "word2")); // "slot_word2"
             let x = 0;
-            console.log("test", document.getElementById("word" + x)); // "wordX"
+            console.log(document.getElementById("slot_" + x)); // "slot_0"
+            // "slot_" + wordId
 
             function addWord(wordId) {
                 console.log("word", wordId); // "pick2"
@@ -72,7 +73,7 @@
                 let pickableWord1InnerHTML = document.getElementById(wordId).innerHTML;
 
                 // Set word1 element's innerHTML to a specified value.
-                document.getElementById('word1').innerHTML = pickableWord1InnerHTML;
+                document.getElementById('slot1').innerHTML = pickableWord1InnerHTML;
             }
         </script>
     </body>

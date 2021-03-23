@@ -1,3 +1,19 @@
 .pickable-word-container {
     border: 1px solid steelblue;
 }
+
+.insertable-element {
+    color: red;
+}
+
+.pickable-word {
+    cursor: pointer;
+}
+
+.pickable-word:hover {
+    font-weight: bold;
+}
+
+p {
+    font-size: 3ex;
+}
