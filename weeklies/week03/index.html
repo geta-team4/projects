@@ -26,36 +26,50 @@
             <p id="story">Dette er en test <span id="word1" class="insertable-element">_____</span> testing test teeeest <span id="word2" class="insertable-element">_____</span> og så et tredje ord <span id="word3" class="insertable-element">_____</span>.</p>
         </div>
         <div class="pickable-word-container">
-            <p id="pick1" class="pickable-word" onclick="addWord1(this)">1st word</p>
-            <p id="pick2" class="pickable-word" onclick="addWord1(this)">2nd word</p>
-            <p id="pick3" class="pickable-word" onclick="addWord1(this)">3rd word</p>
-            <p id="pick4" class="pickable-word" onclick="addWord1(this)">4th word</p>
+            <p id="pick1" class="pickable-word" onclick="addWord(this.id)">potato</p>
+            <p id="pick2" class="pickable-word" onclick="addWord(this.id)">banana</p>
+            <p id="pick3" class="pickable-word" onclick="addWord(this.id)">apple</p>
+            <p id="pick4" class="pickable-word" onclick="addWord(this.id)">turnip</p>
         </div>
 
         <script>
             var iAmGlobal = "global for life";
+            var wordIdNumber = 1;
             // hints:
             // - (global) incrmement id
             // if er ikke nødvendig.
+
+            // id == 1
+            // *click word*
+            // *add word1*
+            // increment id --> 2
+            // id == 2
+            // click word
+            // *add word2*
+            // increment id --> 3
+            // ...
             
             // Get element dynamically:
-            console.log("test", document.getElementById("word" + 2));
+            // document.getElementById("word" + wordIdNumber);
+            // "en streng" + " test" = "en streng test"
+            // "en streng" + 15 = "en streng15"
+            console.log("test", document.getElementById("word" + 2)); // "word2"
+            let x = 0;
+            console.log("test", document.getElementById("word" + x)); // "wordX"
 
-            function addWord(word) {
+            function addWord(wordId) {
+                console.log("word", wordId); // "pick2"
                 
+
             }
 
-            function addWord1(paragraphElement) {
+            function addWord1(wordId) {
                 console.log("Global guy", iAmGlobal);
-                // Get word1 element (object)
-                let word1Element = document.getElementById('word1');
                 // Get word1 element innerHTML (string)
-                let word1ElementInnerHTML = word1Element.innerHTML;
+                let word1Text = document.getElementById('word1').innerHTML;
                 
-                // Get pickable word 1 element (object)
-                let pickableWord1 = document.getElementById(paragraphElement.id);
                 // Get pickable word 1 element innerHTML (string)
-                let pickableWord1InnerHTML = pickableWord1.innerHTML;
+                let pickableWord1InnerHTML = document.getElementById(wordId).innerHTML;
 
                 // Set word1 element's innerHTML to a specified value.
                 document.getElementById('word1').innerHTML = pickableWord1InnerHTML;
