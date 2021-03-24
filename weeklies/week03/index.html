@@ -26,10 +26,10 @@
             <p id="story">Dette er en test <span id="slot1" class="insertable-element">_____</span> testing test teeeest <span id="slot2" class="insertable-element">_____</span> og så et tredje ord <span id="slot3" class="insertable-element">_____</span>.</p>
         </div>
         <div class="pickable-word-container">
-            <p id="word1" class="pickable-word" onclick="addWord1(this.id)">potato</p>
-            <p id="word2" class="pickable-word" onclick="addWord(this.id)">banana</p>
-            <p id="word3" class="pickable-word" onclick="addWord(this.id)">apple</p>
-            <p id="word4" class="pickable-word" onclick="addWord(this.id)">turnip</p>
+            <p id="word1" class="pickable-word" onclick="addWord(this.innerHTML)">potato</p>
+            <p id="word2" class="pickable-word" onclick="addWord(this.innerHTML)">banana</p>
+            <p id="word3" class="pickable-word" onclick="addWord(this.innerHTML)">apple</p>
+            <p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">turnip</p>
         </div>
 
         <script>
@@ -58,22 +58,16 @@
             console.log(document.getElementById("slot_" + x)); // "slot_0"
             // "slot_" + wordId
 
-            function addWord(wordId) {
-                console.log("word", wordId); // "pick2"
-                
-
+            function addWord(word) {
+                console.log("word", word); // "pick2"
+                document.getElementById('slot' + wordIdNumber).innerHTML = word;
+                wordIdNumber += 1;
             }
 
-            function addWord1(wordId) {
+            function addWord1(word) {
                 console.log("Global guy", iAmGlobal);
-                // Get word1 element innerHTML (string)
-                let word1Text = document.getElementById('word1').innerHTML;
-                
-                // Get pickable word 1 element innerHTML (string)
-                let pickableWord1InnerHTML = document.getElementById(wordId).innerHTML;
-
-                // Set word1 element's innerHTML to a specified value.
-                document.getElementById('slot1').innerHTML = pickableWord1InnerHTML;
+                // Set slot1 element's innerHTML to a specified value.
+                document.getElementById('slot1').innerHTML = word;
             }
         </script>
     </body>
