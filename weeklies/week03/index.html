@@ -35,6 +35,7 @@
         <script>
             var iAmGlobal = "global for life";
             var wordIdNumber = 1;
+            var iAmDone = false;
             // hints:
             // - (global) incrmement id
             // if er ikke nødvendig.
@@ -59,15 +60,25 @@
             // "slot_" + wordId
 
             function addWord(word) {
-                console.log("word", word); // "pick2"
-                document.getElementById('slot' + wordIdNumber).innerHTML = word;
-                wordIdNumber += 1;
+                console.log("Clicked", word); // "pick2"
+                if (iAmDone == false) {
+                    document.getElementById('slot' + wordIdNumber).innerHTML = word;
+                    
+                    if (wordIdNumber < 3) {
+                        wordIdNumber += 1;
+                    } else {
+                        iAmDone = true;
+                        console.log('am done!');
+                    }
+                }
             }
 
             function addWord1(word) {
-                console.log("Global guy", iAmGlobal);
-                // Set slot1 element's innerHTML to a specified value.
-                document.getElementById('slot1').innerHTML = word;
+                if (true) {
+                    console.log("Global guy", iAmGlobal);
+                    // Set slot1 element's innerHTML to a specified value.
+                    document.getElementById('slot1').innerHTML = word; 
+                }
             }
         </script>
     </body>
