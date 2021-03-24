@@ -33,31 +33,8 @@
         </div>
 
         <script>
-            var iAmGlobal = "global for life";
             var wordIdNumber = 1;
             var iAmDone = false;
-            // hints:
-            // - (global) incrmement id
-            // if er ikke nødvendig.
-
-            // id == 1
-            // *click word*
-            // *add word1*
-            // increment id --> 2
-            // id == 2
-            // click word
-            // *add word2*
-            // increment id --> 3
-            // ...
-            
-            // Get element dynamically:
-            // document.getElementById("word" + wordIdNumber);
-            // "en streng" + " test" = "en streng test"
-            // "en streng" + 15 = "en streng15"
-            console.log(document.getElementById("slot_" + "word2")); // "slot_word2"
-            let x = 0;
-            console.log(document.getElementById("slot_" + x)); // "slot_0"
-            // "slot_" + wordId
 
             function addWord(word) {
                 console.log("Clicked", word); // "pick2"
@@ -70,14 +47,6 @@
                         iAmDone = true;
                         console.log('am done!');
                     }
-                }
-            }
-
-            function addWord1(word) {
-                if (true) {
-                    console.log("Global guy", iAmGlobal);
-                    // Set slot1 element's innerHTML to a specified value.
-                    document.getElementById('slot1').innerHTML = word; 
                 }
             }
         </script>
