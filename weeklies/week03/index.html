@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <!-- 
+
+<head>
+    <!-- 
             Teamoppgave: WordChooser Story!
             Lag en liten historie med noen manglende ord.
             Lag en liste over ord som kan klikkes på - og la disse ordene fylle tomrommene i historien når de blir valgt.
@@ -11,52 +12,77 @@
             Gå sammen i teamene deres - planlegg og jobb sammen for å finne en løsning - pass på at alle får bidratt! :slight_smile:
             Blir dere tidlig ferdig, så bruk resten av TP øktene til å slippe kreativiteten løs og "jazze opp" oppgaven  -->
 
-        <meta charset="utf-8">
-        <meta name="author" content="Aleksander Berge Kjellsen, Casper Kielland, Stine Marte Duklæt Aspenes">
-        <meta name="keywords" content="GET Academy, BluABK, StineMAS, CasperKi">
-        <meta name="description" content="Team 4 weekly project: Week 3 - WordChooser Story">
+    <meta charset="utf-8">
+    <meta name="author" content="Aleksander Berge Kjellsen, Casper Kielland, Stine Marte Duklæt Aspenes">
+    <meta name="keywords" content="GET Academy, BluABK, StineMAS, CasperKi">
+    <meta name="description" content="Team 4 weekly project: Week 3 - WordChooser Story">
 
-        <title>Team 4 weekly project: Week 3 - WordChooser Story</title>
+    <title>Team 4 weekly project: Week 3 - WordChooser Story</title>
 
-        <link rel="stylesheet" type="text/css" href="main.css">
-    </head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
 
-    <body>
-        <div id="app"></div>
-        <div id="story-container">
-            <p id="story">Dette er en test <span id="slot1" class="insertable-element">_____</span> testing test teeeest <span id="slot2" class="insertable-element">_____</span> og så et tredje ord <span id="slot3" class="insertable-element">_____</span>.</p>
-        </div>
-        <div class="pickable-word-container">
-            <p id="word1" class="pickable-word" onclick="addWord(this.innerHTML)">potato</p>
-            <p id="word2" class="pickable-word" onclick="addWord(this.innerHTML)">banana</p>
-            <p id="word3" class="pickable-word" onclick="addWord(this.innerHTML)">apple</p>
-            <p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">turnip</p>
-        </div>
+<body>
+    <div id="app"></div>
 
-        <script>
-            // Model
-            var wordIdNumber = 1;
-            var iAmDone = false;
-            
-            // View
-            function updateView() {
-                // Gimmeh content!
-            }
 
-            // Controller
-            function addWord(word) {
-                console.log("Clicked", word); // "pick2"
-                if (iAmDone == false) {
-                    document.getElementById('slot' + wordIdNumber).innerHTML = word;
-                    
-                    if (wordIdNumber < 3) {
-                        wordIdNumber += 1;
-                    } else {
-                        iAmDone = true;
-                        console.log('am done!');
-                    }
+    <script>
+        // Model
+        const PLACEHOLDER = '_____';
+        let slots = [PLACEHOLDER, PLACEHOLDER, PLACEHOLDER, PLACEHOLDER];
+        const slotsItemCount = slots.length -1;
+        let slotPosition = 0;
+        let iAmDone = false;
+
+        // View
+        function updateView() {
+            document.getElementById("app").innerHTML = `
+                <div id="story-container">
+                    <p id="story">
+                        Once upon a time there was a <span class="insertable-element">${slots[0]}</span> 
+                        who fell in love with a <span class="insertable-element">${slots[1]}</span> 
+                        who was married to a <span class="insertable-element">${slots[2]}</span> 
+                        that was bethrothed to the royal <span class="insertable-element">${slots[3]}</span>.
+                    </p>
+                </div>
+                <div>
+                    <ul>
+                        <li><p id="word1" class="pickable-word" onclick="addWord(this.innerHTML)">potato</p></li>
+                        <li><p id="word2" class="pickable-word" onclick="addWord(this.innerHTML)">banana</p></li>
+                        <li><p id="word3" class="pickable-word" onclick="addWord(this.innerHTML)">coconut</p></li>
+                        <li><p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">turnip</p></li>
+                        <li><p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">cucumber</p></li>
+                        <li><p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">grapefruit</p></li>
+                        <li><p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">watermelon</p></li>
+                        <li><p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">cherry</p></li>
+                        <li><p id="word4" class="pickable-word" onclick="addWord(this.innerHTML)">papaya</p></li>
+                    </ul>
+                </div>
+              `;
+
+        }
+
+        // Controller
+        function addWord(word) {
+            if (iAmDone == false) {
+                slots[slotPosition] = word;
+
+                
+                if (slotPosition < slotsItemCount) {
+                    slotPosition += 1;
+                } else {
+                    iAmDone = true;
+                    console.log("Done!!");
                 }
+            } else {
+                console.log("Already done!");
             }
-        </script>
-    </body>
+            
+            updateView();
+        }
+
+        updateView();
+    </script>
+</body>
+
 </html>

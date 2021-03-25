@@ -1,9 +1,6 @@
-.pickable-word-container {
-    border: 1px solid steelblue;
-}
-
 .insertable-element {
-    color: red;
+    color: steelblue;
+    font-weight: bold;
 }
 
 .pickable-word {
