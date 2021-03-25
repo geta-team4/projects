@@ -22,6 +22,7 @@
     </head>
 
     <body>
+        <div id="app"></div>
         <div id="story-container">
             <p id="story">Dette er en test <span id="slot1" class="insertable-element">_____</span> testing test teeeest <span id="slot2" class="insertable-element">_____</span> og så et tredje ord <span id="slot3" class="insertable-element">_____</span>.</p>
         </div>
@@ -33,9 +34,16 @@
         </div>
 
         <script>
+            // Model
             var wordIdNumber = 1;
             var iAmDone = false;
+            
+            // View
+            function updateView() {
+                // Gimmeh content!
+            }
 
+            // Controller
             function addWord(word) {
                 console.log("Clicked", word); // "pick2"
                 if (iAmDone == false) {
