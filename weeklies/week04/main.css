@@ -1,0 +1,6 @@
+#board {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    font-family: 'Courier New', Courier, monospace;
+}
