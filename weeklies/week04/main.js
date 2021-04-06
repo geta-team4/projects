@@ -1,6 +1,7 @@
 // Model.
 let playerMove = "UNSET";
 let computerMove = "UNSET";
+let moves = ["rock", "paper", "scissors"];
 
 // View.
 function updateView() {
@@ -16,14 +17,22 @@ function updateView() {
 }
 
 // Controller.
-function playerAction(moveName = "rock") {
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function playerAction(moveName) {
     playerMove = moveName;
+
+    computerAction();
 
     updateView();
 }
 
-function computerAction(moveName) {
+function computerAction() {
+    let randomInt = getRandomInt(0, moves.length - 1);
 
+    computerMove = moves[randomInt];
 }
 
 updateView();
