@@ -1,6 +1,6 @@
 // Model.
-let playerMove;
-let computerMove;
+let playerMove = "UNSET";
+let computerMove = "UNSET";
 
 // View.
 function updateView() {
@@ -9,18 +9,20 @@ function updateView() {
             <p>Player:&nbsp;&nbsp;&nbsp${playerMove}</p>
             <p>Computer:&nbsp;${computerMove}</p>
         </div>
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissor</button>
+        <button onclick="playerAction('rock')">Rock</button>
+        <button onclick="playerAction('paper')">Paper</button>
+        <button onclick="playerAction('scissors')">Scissors</button>
     `;
 }
 
 // Controller.
-function player() {
+function playerAction(moveName = "rock") {
+    playerMove = moveName;
 
+    updateView();
 }
 
-function computer() {
+function computerAction(moveName) {
 
 }
 
