@@ -31,15 +31,22 @@ function updateView() {
             ${gameWinner != "" ? gameWinnerElement : ""}
         </div>
         <div id="settings">
+            <h1>Settings</h1>
             <input type="radio" id="infinite-mode" name="game-type" onchange="toggleGameMode()" value="Infinite" ${gameModeNormal == true ? "checked" : ""}>
             <label for="male">Infinite</label><br>
             <input type="radio" id="bestof-mode" name="game-type" onchange="toggleGameMode()" value="Best of N" ${gameModeNormal == false ? "checked" : ""}>
             <label for="game-type">Best of N</label><br>
             ${gameModeNormal == true ? "" : bestOfCountElement}
         </div>
-        <button onclick="playerAction('rock')">Rock</button>
-        <button onclick="playerAction('scissors')">Scissors</button>
-        <button onclick="playerAction('paper')">Paper</button>
+        <button id="rock-img" onclick="playerAction('rock')">
+            <img src="rock.svg" width="90" height="50" alt="Rock" />
+        </button>
+        <button id="scissors-img" onclick="playerAction('scissors')">
+             <img src="scissors.svg" width="90" height="50" alt="Scissors" />
+        </button>
+        <button id="paper-img" onclick="playerAction('paper')">
+            <img src="paper.svg" width="90" height="50" alt="Paper" />
+        </button>
     `;
 
     if (gameWinner != "") {   
@@ -125,7 +132,7 @@ function playerAction(moveName) {
 
     rounds++;
 
-    if (rounds >= bestOfCount) {
+    if (rounds >= bestOfCount && gameModeNormal == false) {
         checkIfGameWon();
     }
 
