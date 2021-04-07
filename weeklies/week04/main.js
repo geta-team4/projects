@@ -4,13 +4,20 @@ let playerScore = 0;
 let computerMove = "No move";
 let computerScore = 0;
 let moves = ["rock", "paper", "scissors"];
-let winner = "";
+let roundWinner = "";
 let gameModeNormal = true;
+let gameWinner = "";
+let bestOfCount = 0;
+let rounds = 0;
 
 // View.
 function updateView() {
     let bestOfCountElement = `
-        <input type="text" placeholder="Enter a number"></input>
+        <input type="text" placeholder=${bestOfCount != 0 ? bestOfCount : "Enter a number"} onchange="bestOfCount = parseInt(this.value)"></input>
+    `;
+
+    let gameWinnerElement = `
+        <h1>${gameWinner}</h1>
     `;
 
     document.getElementById("app").innerHTML = `
@@ -20,7 +27,8 @@ function updateView() {
             <br/><hr/>
             <p>Player score:&nbsp;&nbsp;&nbsp${playerScore}</p>
             <p>Computer score:&nbsp;${computerScore}</p>
-            <p>Round result: ${winner}</p>
+            <p>Round result: ${roundWinner}</p>
+            ${gameWinner != "" ? gameWinnerElement : ""}
         </div>
         <div id="settings">
             <input type="radio" id="infinite-mode" name="game-type" onchange="toggleGameMode()" value="Infinite" ${gameModeNormal == true ? "checked" : ""}>
@@ -33,6 +41,12 @@ function updateView() {
         <button onclick="playerAction('scissors')">Scissors</button>
         <button onclick="playerAction('paper')">Paper</button>
     `;
+
+    if (gameWinner != "") {   
+        resetGame();
+        gameWinner = "";
+    }
+        
 }
 
 // Controller.
@@ -40,8 +54,17 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function resetGame() {
+    if (gameWinner != "") {
+        playerScore = 0;
+        computerScore = 0;
+        rounds = 0;
+    }
+}
+
 function toggleGameMode() {
     gameModeNormal == true ? gameModeNormal = false : gameModeNormal = true;
+    
     updateView();
 }
 
@@ -70,6 +93,17 @@ function determineWinningMove(moveA, moveB) {
     }
 }
 
+function checkIfGameWon() {
+    // sjekke hvem som hadde høyeste score.
+    if (playerScore > computerScore) {
+        gameWinner = "Player won the game!";
+    } else if (playerScore == computerScore) {
+        gameWinner = "Draw! No one wins...";
+    } else {
+        gameWinner = "Computer won the game!";
+    }
+}
+
 function playerAction(moveName) {
     playerMove = moveName;
 
@@ -78,17 +112,22 @@ function playerAction(moveName) {
     let winningMove = determineWinningMove(playerMove, computerMove);
 
     if (winningMove == null) {
-        winner = "Draw!";
+        roundWinner = "Draw!";
     } else {
         if (winningMove == playerMove) {
-            winner = "Player wins!";
+            roundWinner = "Player wins!";
             playerScore++;
         } else {
-            winner = "Computer wins!";
+            roundWinner = "Computer wins!";
             computerScore++;
         }
     }
 
+    rounds++;
+
+    if (rounds >= bestOfCount) {
+        checkIfGameWon();
+    }
 
     updateView();
 }
