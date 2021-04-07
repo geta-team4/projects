@@ -1,6 +1,8 @@
 // Model.
 let playerMove = "No move";
+let playerScore = 0;
 let computerMove = "No move";
+let computerScore = 0;
 let moves = ["rock", "paper", "scissors"];
 let winner = "";
 
@@ -11,11 +13,13 @@ function updateView() {
             <p>Player:&nbsp;&nbsp;&nbsp${playerMove}</p>
             <p>Computer:&nbsp;${computerMove}</p>
             <br/><hr/>
-            <p>${winner}</p>
+            <p>Player score:&nbsp;&nbsp;&nbsp${playerScore}</p>
+            <p>Computer score:&nbsp;${computerScore}</p>
+            <p>Round result: ${winner}</p>
         </div>
         <button onclick="playerAction('rock')">Rock</button>
-        <button onclick="playerAction('paper')">Paper</button>
         <button onclick="playerAction('scissors')">Scissors</button>
+        <button onclick="playerAction('paper')">Paper</button>
     `;
 }
 
@@ -49,8 +53,6 @@ function determineWinningMove(moveA, moveB) {
     }
 }
 
-// rock > scissor > paper > rock ?
-
 function playerAction(moveName) {
     playerMove = moveName;
 
@@ -61,8 +63,15 @@ function playerAction(moveName) {
     if (winningMove == null) {
         winner = "Draw!";
     } else {
-        winningMove == playerMove ? winner = "Player wins!" : winner = "Computer wins!";
+        if (winningMove == playerMove) {
+            winner = "Player wins!";
+            playerScore++;
+        } else {
+            winner = "Computer wins!";
+            computerScore++;
+        }
     }
+
 
     updateView();
 }
