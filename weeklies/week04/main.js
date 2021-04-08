@@ -44,7 +44,7 @@ function updateView() {
                 <label for="male">Infinite</label><br>
                 <input type="radio" id="bestof-mode" name="game-type" onchange="toggleGameMode()" value="Best of N" ${gameModeNormal == false ? "checked" : ""}>
                 <label for="game-type">Best of N</label><br>
-                <input type="text" placeholder=${bestOfCount != 0 ? bestOfCount : "Enter a number"} onchange="bestOfCount = parseInt(this.value)"  ${gameModeNormal == true ? "disabled" : ""}></input>
+                <input type="text" placeholder=${bestOfCount != 0 ? bestOfCount : "Enter&nbsp;a&nbsp;number..."} onchange="bestOfCount = parseInt(this.value)"  ${gameModeNormal == true ? "disabled" : ""}></input>
             </div>
         </div>
         
