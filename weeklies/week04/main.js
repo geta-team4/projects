@@ -21,6 +21,13 @@ function updateView() {
     `;
 
     document.getElementById("app").innerHTML = `
+        <div id="game-header">
+            <h1>
+                <span id="game-header-text-rock">Rock,</span>
+                <span id="game-header-text-paper">Paper,</span>
+                <span id="game-header-text-scissors">Scissors!</span>
+            </h1>
+        </div>
         <div id="board">
             <p>Player:&nbsp;&nbsp;&nbsp${playerMove}</p>
             <p>Computer:&nbsp;${computerMove}</p>
@@ -32,21 +39,22 @@ function updateView() {
         </div>
         <div id="settings">
             <h1>Settings</h1>
-            <input type="radio" id="infinite-mode" name="game-type" onchange="toggleGameMode()" value="Infinite" ${gameModeNormal == true ? "checked" : ""}>
-            <label for="male">Infinite</label><br>
-            <input type="radio" id="bestof-mode" name="game-type" onchange="toggleGameMode()" value="Best of N" ${gameModeNormal == false ? "checked" : ""}>
-            <label for="game-type">Best of N</label><br>
-            ${gameModeNormal == true ? "" : bestOfCountElement}
+            <div class="settings-content">
+                <input type="radio" id="infinite-mode" name="game-type" onchange="toggleGameMode()" value="Infinite" ${gameModeNormal == true ? "checked" : ""}>
+                <label for="male">Infinite</label><br>
+                <input type="radio" id="bestof-mode" name="game-type" onchange="toggleGameMode()" value="Best of N" ${gameModeNormal == false ? "checked" : ""}>
+                <label for="game-type">Best of N</label><br>
+                <input type="text" placeholder=${bestOfCount != 0 ? bestOfCount : "Enter a number"} onchange="bestOfCount = parseInt(this.value)"  ${gameModeNormal == true ? "disabled" : ""}></input>
+            </div>
         </div>
-        <button id="rock-img" onclick="playerAction('rock')">
-            <img src="rock.svg" width="90" height="50" alt="Rock" />
-        </button>
-        <button id="scissors-img" onclick="playerAction('scissors')">
-             <img src="scissors.svg" width="90" height="50" alt="Scissors" />
-        </button>
-        <button id="paper-img" onclick="playerAction('paper')">
-            <img src="paper.svg" width="90" height="50" alt="Paper" />
-        </button>
+        
+        <div id="action">
+            <div class="action-elements">
+                <img src="./rock.svg" class="action-buttons" onclick="playerAction('rock')" />
+                <img src="./scissors.svg" class="action-buttons" onclick="playerAction('rock')" />
+                <img src="./paper.svg" class="action-buttons" onclick="playerAction('rock')" />
+            </div>
+        </div>
     `;
 
     if (gameWinner != "") {   

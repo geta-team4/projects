@@ -1,8 +1,93 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#game-header {
+    grid-area: header-area;
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+
 #board {
+    grid-area: board-area;
     width: 500px;
     height: 500px;
     padding-left: 10px;
-    /* border: 1px solid black; */
-    border: 1px solid rgb(204, 204, 204);
-    font-family: 'Courier New', Courier, monospace;
+    width: 97%;
 }
+
+#app {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:    'header-area header-area'
+                            'board-area settings-area'
+                            'action-area action-area';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center; 
+    border: 1px solid rgb(204, 204, 204);
+    max-height: 99vh;
+}
+
+.action-buttons {
+    transition: .5s;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.action-buttons:hover {
+    transition: .3s;
+    background-color: rgba(170, 170, 170, 0.5); /* Tint color */
+    background-blend-mode: multiply;
+}
+
+#action {
+    grid-area: action-area;
+    display: inline-block;
+    margin-left: auto;
+	margin-right: auto;
+    border-top: 1px solid rgb(204, 204, 204);
+    width: 100%;
+    padding-top: 20px;
+
+}
+
+.action-elements {
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+	margin-right: auto;
+}
+
+.action-elements img {
+    width:25%;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-variant-caps:all-petite-caps;
+}
+
+#settings {
+    grid-area: settings-area;
+    margin: 0px;
+    padding: 0px 25px 0px; 
+    border-left: 1px solid rgb(204, 204, 204);
+}
+
+.settings-content {
+    text-align: left;
+}
+
+
