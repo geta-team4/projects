@@ -9,8 +9,8 @@ const ASCII_OFFSET = 65;
 // View
 function updateView() {
     document.getElementById('app').innerHTML = `
-        <input type="text" onChange="userInput(this.value)" />
-        <div>Out: ${encodedString}</div>
+        <input type="text" class="user-input" onChange="userInput(this.value)" />
+        <div class="result">Out: ${encodedString}</div>
     `;
 }
 
