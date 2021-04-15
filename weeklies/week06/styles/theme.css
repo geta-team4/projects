@@ -15,5 +15,5 @@ button {
 input {
     background-color: rgb(4, 4, 4);
     color: rgba(3, 255, 255, 0.568);
-    border-color: rgb(20, 86, 88);
+    border: 2px solid rgb(20, 86, 88);
 }

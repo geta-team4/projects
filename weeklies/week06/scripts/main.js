@@ -6,12 +6,13 @@ const morseCodeArray =  [ '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....
 const validInputs = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', 'Æ', 'Ø', 'Å',]
 let encodedString = "";
 const ASCII_OFFSET = 65;
+let lastInput = "";
 
 // View
 function updateView() {
     document.getElementById('app').innerHTML = `
-        <img src="img/morse.png" width="" height="" /><br/>
-        <input type="text" class="user-input" onChange="userInput(this.value)" />
+        <img src="img/morse.png" width="" height="" /><br /><br /><br />
+        <input type="text" class="user-input" placeholder="${lastInput}" onChange="userInput(this.value)" />
         <div class="result">${encodedString}</div>
     `;
 }
@@ -45,6 +46,7 @@ function encodeToMorseCode(c) {
 }
 
 function userInput(s) {
+    lastInput = s;
     encodedString = "";
 
     for (let char of s) {
