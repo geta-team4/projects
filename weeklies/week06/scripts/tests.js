@@ -31,7 +31,14 @@ QUnit.test("encodeToMorseCode - Check that characters encode correctly.", functi
     assert.equal(encodeToMorseCode('ø'), '−−−·', "'ø' → '−−−·'");
     assert.equal(encodeToMorseCode('å'), '·−−·−', "'å' → '·−−·−'");
     assert.equal(encodeToMorseCode(' '), ' ', "' ' → ' '");
-    
-    
-    
+});
+
+QUnit.test("encodeToMorseCode - Check that encoder skips invalid chars.", function (assert) {
+    assert.equal(encodeToMorseCode(0), '', "0 → ''");
+    assert.equal(encodeToMorseCode([]), '', "[] → ''");
+    assert.equal(encodeToMorseCode(null), '', "null → ''");
+    assert.equal(encodeToMorseCode(undefined), '', "undefined → ''");
+    assert.equal(encodeToMorseCode('.'), '', "'.' → ''");
+    assert.equal(encodeToMorseCode('!'), '', "'!' → ''");
+    assert.equal(encodeToMorseCode('@'), '', "'@' → ''");
 });

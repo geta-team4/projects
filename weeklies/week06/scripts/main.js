@@ -3,6 +3,7 @@ const morseCodeArray =  [ '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....
                           '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.',
                           '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-',
                           '-.--', '--..', ' ', '·−·−', '−−−·', '·−−·−']; //4 siste er space, æ ,ø og å
+const validInputs = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', 'Æ', 'Ø', 'Å',]
 let encodedString = "";
 const ASCII_OFFSET = 65;
 
@@ -16,6 +17,10 @@ function updateView() {
 
 // Controller
 function encodeToMorseCode(c) {
+    if (typeof(c) !== "string") return '';
+
+    if (validInputs.includes(c.toUpperCase()) == false) return '';
+
     let charToEncode = c.toUpperCase();
     let result = "";
     let morseIndex = 0;
