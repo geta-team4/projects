@@ -10,6 +10,7 @@ const ASCII_OFFSET = 65;
 // View
 function updateView() {
     document.getElementById('app').innerHTML = `
+        <img src="img/morse.png" width="" height="" /><br/>
         <input type="text" class="user-input" onChange="userInput(this.value)" />
         <div class="result">${encodedString}</div>
     `;
@@ -52,7 +53,5 @@ function userInput(s) {
 
     updateView();
 }
-
-encodeToMorseCode("a");
 
 updateView();

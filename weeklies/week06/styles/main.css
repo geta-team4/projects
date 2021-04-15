@@ -1,9 +1,9 @@
 #app {
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10%);
     text-align: center; 
     /* padding: 25px 50px 0 50px; */
     /* border: 1px solid #000000f1; */
@@ -26,4 +26,9 @@
 
 .result {
     font-size: 5ex;
+}
+
+img {
+    width: 500px;
+    height: auto;
 }

@@ -1,6 +1,8 @@
 body {
-    background-color: rgb(36, 36, 36);
-    color: rgb(204, 204, 204);
+    /* background-color: rgb(36, 36, 36); */
+    background-color: rgb(4, 4, 4);
+    /* background-color: black; */
+    color: rgba(3, 255, 255, 0.568);
 }
 
 button {
@@ -11,6 +13,7 @@ button {
 }
 
 input {
-    background-color: rgb(36, 36, 36);
-    color: rgb(204, 204, 204);
+    background-color: rgb(4, 4, 4);
+    color: rgba(3, 255, 255, 0.568);
+    border-color: rgb(20, 86, 88);
 }
