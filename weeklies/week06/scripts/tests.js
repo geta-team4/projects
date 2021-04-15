@@ -27,9 +27,9 @@ QUnit.test("encodeToMorseCode - Check that characters encode correctly.", functi
     assert.equal(encodeToMorseCode('x'), '-..-', "'x' → '-..-'");
     assert.equal(encodeToMorseCode('y'), '-.--', "'y' → '-.--'");
     assert.equal(encodeToMorseCode('z'), '--..', "'z' → '--..'");
-    assert.equal(encodeToMorseCode('æ'), '·−·−', "'æ' → '·−·−'");
-    assert.equal(encodeToMorseCode('ø'), '−−−·', "'ø' → '−−−·'");
-    assert.equal(encodeToMorseCode('å'), '·−−·−', "'å' → '·−−·−'");
+    assert.equal(encodeToMorseCode('æ'), '·-·-', "'æ' → '·-·-'");
+    assert.equal(encodeToMorseCode('ø'), '---·', "'ø' → '---·'");
+    assert.equal(encodeToMorseCode('å'), '·--·-', "'å' → '·--·-'");
     assert.equal(encodeToMorseCode(' '), ' ', "' ' → ' '");
 });
 
