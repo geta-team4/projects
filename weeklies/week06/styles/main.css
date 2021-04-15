@@ -1,0 +1,28 @@
+#app {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center; 
+    padding: 25px 50px 0 50px;
+    border: 1px solid #000000f1;
+    /* background-color: rgba(0, 0, 0, 0.897); */
+}
+
+.user-input {
+    font-size: 5ex;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.user-input:focus {
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.result {
+    font-size: 5ex;
+}
