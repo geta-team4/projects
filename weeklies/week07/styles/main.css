@@ -4,7 +4,28 @@ body {
 }
 
 .healthbar {
-    background-color: rgb(187, 37, 37);
+    /* display: flex; */
+    border: 3px solid white;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+}
+
+.healthbar p {
+    font-size: 2em;
+    position: absolute;
+}
+
+.health-lost {
+    float: left;
+    background-color: rgb(207, 54, 54);
+    height: 40px;
+}
+
+.health {
+    float: left;
+    /* background-color: rgb(47, 194, 47); */
+    background-color: rgb(24, 145, 60);
     height: 40px;
 }
 
@@ -17,7 +38,7 @@ body {
 }
 
 .boss-character {
-    background-color: darkgoldenrod;
+    /* background-color: darkgoldenrod; */
 }
 
 .boss-character:hover {
