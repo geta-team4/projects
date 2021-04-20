@@ -1,0 +1,26 @@
+body {
+    cursor: url('./sword.png'), auto;
+    /* cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/heart.svg); */
+}
+
+.healthbar {
+    background-color: rgb(187, 37, 37);
+    height: 40px;
+}
+
+.player-healthbar {
+    width: 350px;
+}
+
+.boss-healthbar {
+    width: 500px;
+}
+
+.boss-character {
+    background-color: darkgoldenrod;
+}
+
+.boss-character:hover {
+    /* cursor: url('../img/sword.png'), auto; */
+    /* cursor: pointer; */
+}
