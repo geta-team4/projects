@@ -7,13 +7,23 @@ body {
     /* display: flex; */
     border: 3px solid white;
     height: 40px;
-    text-align: center;
-    justify-content: center;
+    
+    font-size: 2em;
+    /* position: absolute; */
+    line-height: 40px;
+    overflow: hidden;
 }
 
-.healthbar p {
-    font-size: 2em;
+.health-text {
+    float: left;
+    height: 40px;
+    font-size: 1.5em;
     position: absolute;
+    line-height: 40px;
+    justify-content: center;
+    text-align: center;
+    /* margin-left: 50%; */
+    /* margin-right: auto; */
 }
 
 .health-lost {
